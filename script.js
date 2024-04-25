@@ -11,114 +11,140 @@ function getComputerChoice() {
     }
    };
    let computerChoice = getComputerChoice();
-   console.log(computerChoice);
+   
 
    let btn = document.querySelectorAll("button");
 
    let rockbtn = document.querySelector("#rockbtn");
    let paperbtn = document.querySelector("#paperbtn");
    let scissorsbtn = document.querySelector("#scissorsbtn");
+   let newgame = document.querySelector("#newgamebtn");
 
-   let playerScore = document.querySelector("#playerscore");
-   let computerScore = document.querySelector("#computerscore");
+   let playerScoreText = document.querySelector("#playerscore");
+   let computerScoreText = document.querySelector("#computerscore");
+
+   let results = document.querySelector("h4");
+   let declaration = document.querySelector("h5");
+
 
    //loop scores until either reaches 5
-   /*for(playerScore = 0; playerScore < 5; playerScore++) {
-    do{
-      playRound();
-    } while(playerScore <= 5);
+
+   let playerScore = 0;
+   let computerScore = 0;
+
+   if (playerScore === 5) {
+    declaration.textContent = 'Congrats !! You are the winner !';
+  } else if (computerScore === 5) {
+    declaration.textContent = 'Oh no you lost...'
+  };
 
 
-   }
 
-   for(computerScore = 0; computerScore < 5; computerScore++) {
-    do{
-      playRound();
-    } while(computerScore <= 5);
-
-
-   }
-   */
-
-
-  
-
-   
-
+    
+   getComputerChoice();
    rockbtn.addEventListener("click", ifRock);
-
-   
 
    function ifRock() {
     
     if(computerChoice === "rock"){
-        alert( "Computer chose Rock,  It's a tie!");
-        location.reload();
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Rock,  It's a tie!";
+        
 
     }
     else if(computerChoice === 'paper'){
-        alert("Computer chose Paper,  You lost!");
-        
-      location.reload();
+        computerScore++;
+        playerScoreText.textContent = `Player Score: ${playerScore}`;
+        computerScoreText.textContent = `Computer Score: ${computerScore}`;
+        results.textContent = "Computer chose Paper,  You lost!";
     }
+
     else if(computerChoice === 'scissors'){
-      alert("Computer chose Scissors,  You won!");
+      playerScore++;
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Scissors,  You won!";
       
-    location.reload();
-  }
+      
+    }
+    
    };
+
+   getComputerChoice();
+   
 
    paperbtn.addEventListener("click", ifPaper);
    function ifPaper() {
     
     if(computerChoice === "rock"){
-        alert( "Computer chose Rock,  You win!");
-       
-        location.reload();
-
+      playerScore++;
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Rock,  You win!";
     }
+
     else if(computerChoice === 'paper'){
-        alert("Computer chose Paper,  It's a tie!");
-        location.reload();
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Paper,  It's a tie!";
 
     }
+
     else if (computerChoice === 'scissors'){
-      alert("Computer chose Scissors,  You lose!");
+      computerScore++;
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent  ="Computer chose Scissors,  You lost!";
       
-      location.reload();
+      
     }
+    
    };
+
+   getComputerChoice();
+   
 
 
   scissorsbtn.addEventListener("click", ifScissors);
    function ifScissors() {
     
     if(computerChoice === "rock"){
-        alert("Computer chose Rock,  You lose!");
-        
-        location.reload();
-        
+      computerScore++;
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Rock,  You lose!";
 
-    }
+      }
+
     else if(computerChoice === 'paper'){
-        alert("Computer chose Paper,  You win!");
+      playerScore++;
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent = "Computer chose Paper,  You win!";
       
-        location.reload();
+      }
 
-    }
     else if (computerChoice === 'scissors'){
-      alert("Computer chose Scissors,  It's a tie!");
-      location.reload();
+      playerScoreText.textContent = `Player Score: ${playerScore}`;
+      computerScoreText.textContent = `Computer Score: ${computerScore}`;
+      results.textContent =  "Computer chose Scissors,  It's a tie!";
+      
     }
-   
+    
+  };
+   newgame.addEventListener("click", () => {
+    location.reload();
+   })
 
-   // Game Results
+   
+   /* Game Results
 if (playerScore === 5) {
   alert('Congrats !! You are the winner !')
 } else if (computerScore === 5) {
   alert('Oh no you lost...')
-}
-   };
+// }*/
+   
    
 
 
