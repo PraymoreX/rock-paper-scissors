@@ -19,6 +19,10 @@
    let paperbtn = document.querySelector("#paperbtn");
    let scissorsbtn = document.querySelector("#scissorsbtn");
    let newgame = document.querySelector("#newgamebtn");
+   
+
+   
+
 
    let playerScoreText = document.querySelector("#playerscore");
    let computerScoreText = document.querySelector("#computerscore");
@@ -75,6 +79,7 @@
         scissorsbtn.style.display = "none";
         newgame.style.display = "block";
         resultstext.textContent = "Final Results:";
+        
       
     }
         
